@@ -71,6 +71,8 @@
                 Music Technologist · Sound · Future
             </p>
 
+            <h1 class="sr-only">Sedric Edwards — Music Technologist. Sound meets Precision.</h1>
+
             <div bind:this={lineOneEl}>
                 <span
                     class="block text-4xl md:text-6xl lg:text-7xl font-sans font-black text-ivory leading-tight tracking-tight"
