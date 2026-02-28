@@ -1,0 +1,199 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Global Design Tokens ─── */
+:root {
+  --obsidian: #0D0D12;
+  --champagne: #C9A84C;
+  --ivory: #FAF8F5;
+  --slate: #2A2A35;
+}
+
+/* ─── Noise Overlay (Film Grain) ─── */
+html::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+/* ─── Base Resets ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--obsidian);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background: var(--obsidian);
+  color: var(--ivory);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ─── Typography Utilities ─── */
+.font-drama { font-family: 'Playfair Display', serif; }
+.font-mono-custom { font-family: 'JetBrains Mono', monospace; }
+
+/* ─── Magnetic Button Base ─── */
+.btn-magnetic {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 9999px;
+  padding: 0.875rem 2.5rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.35s ease;
+  border: none;
+  text-decoration: none;
+}
+
+.btn-magnetic:hover {
+  transform: scale(1.03);
+}
+
+.btn-magnetic .btn-slide {
+  position: absolute;
+  inset: 0;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: translateY(100%);
+  border-radius: 9999px;
+}
+
+.btn-magnetic:hover .btn-slide {
+  transform: translateY(0);
+}
+
+/* ─── Primary CTA Button ─── */
+.btn-primary {
+  background: var(--champagne);
+  color: var(--obsidian);
+}
+
+.btn-primary .btn-slide {
+  background: #e8c163;
+}
+
+/* ─── Outline Button ─── */
+.btn-outline {
+  background: transparent;
+  color: var(--champagne);
+  border: 1px solid var(--champagne);
+}
+
+.btn-outline .btn-slide {
+  background: var(--champagne);
+}
+
+.btn-outline:hover {
+  color: var(--obsidian);
+}
+
+/* ─── Section Containers ─── */
+.section-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ─── Scrollbar Styling ─── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--obsidian);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--slate);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--champagne);
+}
+
+/* ─── Nav Link Hover ─── */
+.nav-link {
+  position: relative;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.nav-link:hover {
+  transform: translateY(-1px);
+  color: var(--champagne);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--champagne);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ─── Pulsing Status Dot ─── */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* ─── Typewriter Cursor ─── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* ─── Card Hover Lift ─── */
+.card-lift {
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.35s ease;
+}
+
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(201, 168, 76, 0.12);
+}
+
+/* ─── Protocol Stack Cards ─── */
+.protocol-card {
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: top center;
+}

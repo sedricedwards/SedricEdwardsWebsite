@@ -1,0 +1,17 @@
+node_modules/
+.svelte-kit/
+build/
+dist/
+.env
+.env.*
+!.env.example
+.DS_Store
+.agent/
+.playwright-mcp/
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+!public/
+!static/
