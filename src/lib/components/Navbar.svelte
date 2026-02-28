@@ -2,8 +2,8 @@
     import { page } from "$app/stores";
     import { onMount } from "svelte";
 
-    let scrolled = false;
-    let menuOpen = false;
+    let scrolled = $state(false);
+    let menuOpen = $state(false);
 
     const NAV_LINKS = [
         { label: "Work", href: "/work" },
@@ -16,15 +16,20 @@
             scrolled = window.scrollY > 80;
         };
         window.addEventListener("scroll", handleScroll, { passive: true });
+        handleScroll(); // Check initial state
         return () => window.removeEventListener("scroll", handleScroll);
     });
 </script>
 
 <nav
-    class="fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 rounded-full {scrolled
-        ? 'bg-[#0D0D12]/70 backdrop-blur-xl border border-[#2A2A35]/60 shadow-2xl px-6 py-3'
-        : 'bg-transparent px-8 py-4'}"
-    style="width: {scrolled ? 'min(720px, 95vw)' : 'min(900px, 95vw)'}"
+    class="fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 {menuOpen
+        ? 'rounded-3xl bg-[#0D0D12]/90 backdrop-blur-2xl border border-[#2A2A35]/80 shadow-2xl px-6 pb-6 pt-3'
+        : scrolled
+          ? 'rounded-full bg-[#0D0D12]/70 backdrop-blur-xl border border-[#2A2A35]/60 shadow-2xl px-6 py-3'
+          : 'rounded-full bg-transparent px-8 py-4'}"
+    style="width: {scrolled || menuOpen
+        ? 'min(720px, 95vw)'
+        : 'min(900px, 95vw)'}"
 >
     <div class="flex items-center justify-between">
         <!-- Logo -->
@@ -51,12 +56,12 @@
         <!-- Hamburger -->
         <button
             class="md:hidden flex flex-col gap-1.5 p-2"
-            on:click={() => (menuOpen = !menuOpen)}
+            onclick={() => (menuOpen = !menuOpen)}
             aria-label="Toggle menu"
         >
             <span
                 class="block w-6 h-px bg-ivory transition-all duration-300 {menuOpen
-                    ? 'rotate-45 translate-y-2'
+                    ? 'rotate-45 translate-y-2 text-champagne'
                     : ''}"
             ></span>
             <span
@@ -66,7 +71,7 @@
             ></span>
             <span
                 class="block w-6 h-px bg-ivory transition-all duration-300 {menuOpen
-                    ? '-rotate-45 -translate-y-2'
+                    ? '-rotate-45 -translate-y-2 text-champagne'
                     : ''}"
             ></span>
         </button>
@@ -75,13 +80,14 @@
     <!-- Mobile Menu -->
     {#if menuOpen}
         <div
-            class="md:hidden mt-4 pb-2 flex flex-col gap-4 border-t border-[#2A2A35]/50 pt-4"
+            class="md:hidden mt-6 pb-2 flex flex-col gap-4 border-t border-[#2A2A35]/50 pt-6 animate-fade-in"
         >
             {#each NAV_LINKS as link}
                 <a
                     href={link.href}
-                    on:click={() => (menuOpen = false)}
-                    class="text-ivory/80 text-sm font-medium uppercase tracking-widest"
+                    onclick={() => (menuOpen = false)}
+                    class="text-ivory/80 hover:text-champagne transition-colors text-sm font-medium uppercase tracking-widest px-2"
+                    class:text-champagne={$page.url.pathname === link.href}
                 >
                     {link.label}
                 </a>
@@ -89,3 +95,20 @@
         </div>
     {/if}
 </nav>
+
+<style>
+    :global(.animate-fade-in) {
+        animation: fadeIn 0.3s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-5px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
