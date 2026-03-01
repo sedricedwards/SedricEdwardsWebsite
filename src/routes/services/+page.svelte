@@ -104,7 +104,7 @@
                     {/each}
                 </ul>
                 <a href="/contact" class="btn-magnetic btn-primary">
-                    <span class="btn-slide" />
+                    <span class="btn-slide"></span>
                     <span class="relative z-10">Book a Mix Session</span>
                 </a>
             </div>
@@ -119,7 +119,9 @@
                         >
                         <span class="text-ivory/70 text-sm">{step}</span>
                     </div>
-                    {#if i < 3}<div class="w-px h-4 bg-[#2A2A35] ml-4" />{/if}
+                    {#if i < 3}<div
+                            class="w-px h-4 bg-[#2A2A35] ml-4"
+                        ></div>{/if}
                 {/each}
             </div>
         </div>
@@ -145,7 +147,7 @@
                         >
                             <span
                                 class="w-1.5 h-1.5 rounded-full bg-champagne/60"
-                            />
+                            ></span>
                             <span class="text-ivory/60 text-sm">{el}</span>
                         </div>
                     {/each}
@@ -170,7 +172,7 @@
                     and built to convert visitors into fans and clients.
                 </p>
                 <a href="/contact" class="btn-magnetic btn-outline">
-                    <span class="btn-slide" />
+                    <span class="btn-slide"></span>
                     <span class="relative z-10">Start Your Site</span>
                 </a>
             </div>

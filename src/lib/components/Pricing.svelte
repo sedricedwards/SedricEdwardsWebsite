@@ -9,7 +9,7 @@
     const TIERS = [
         {
             name: "Essential",
-            price: "From $299",
+            price: "From $599",
             desc: "Perfect for independent artists getting started.",
             features: [
                 "2-track mix & master",
@@ -22,7 +22,7 @@
         },
         {
             name: "Performance",
-            price: "From $799",
+            price: "From $1,299",
             desc: "For serious artists ready to level up their presence.",
             features: [
                 "Full EP mix & master",
@@ -155,7 +155,7 @@
                             ? 'btn-primary'
                             : 'btn-outline'}"
                     >
-                        <span class="btn-slide" />
+                        <span class="btn-slide"></span>
                         <span
                             class="relative z-10 flex items-center justify-center gap-2"
                         >
