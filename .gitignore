@@ -13,5 +13,5 @@ dist/
 *.jpeg
 *.gif
 *.svg
-!public/
-!static/
+!public/**
+!static/**
