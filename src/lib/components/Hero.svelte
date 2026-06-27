@@ -56,10 +56,10 @@
         />
         <div
             class="absolute inset-0 bg-gradient-to-t from-[#0D0D12] via-[#0D0D12]/70 to-[#0D0D12]/20"
-        />
+        ></div>
         <div
             class="absolute inset-0 bg-gradient-to-r from-[#0D0D12]/60 to-transparent"
-        />
+        ></div>
     </div>
 
     <!-- Content -->
@@ -99,13 +99,13 @@
 
             <div bind:this={ctaEl} class="mt-10 flex flex-wrap gap-4">
                 <a href="/contact" class="btn-magnetic btn-primary">
-                    <span class="btn-slide" />
+                    <span class="btn-slide"></span>
                     <span class="relative z-10 flex items-center gap-2">
                         Book a Session <ArrowRight size={16} />
                     </span>
                 </a>
                 <a href="/work" class="btn-magnetic btn-outline">
-                    <span class="btn-slide" />
+                    <span class="btn-slide"></span>
                     <span class="relative z-10">Explore My Work</span>
                 </a>
             </div>

@@ -45,4 +45,4 @@
     width={260}
     height={160}
     class="opacity-90 rounded-xl"
-/>
+></canvas>

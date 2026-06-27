@@ -78,5 +78,5 @@
         </div>
     {/each}
 
-    <div class="h-24" />
+    <div class="h-24"></div>
 </section>

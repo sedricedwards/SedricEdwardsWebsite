@@ -116,7 +116,7 @@
                     <div
                         class="absolute top-0 left-0 right-0 h-1 opacity-60"
                         style="background:{project.color}"
-                    />
+                    ></div>
 
                     <div class="p-8">
                         <div class="flex items-start justify-between mb-6">
@@ -170,7 +170,7 @@
             >
         </h2>
         <a href="/contact" class="btn-magnetic btn-primary">
-            <span class="btn-slide" />
+            <span class="btn-slide"></span>
             <span class="relative z-10 flex items-center gap-2"
                 >Start a Conversation <ArrowRight size={16} /></span
             >

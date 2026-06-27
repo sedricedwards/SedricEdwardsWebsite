@@ -79,7 +79,7 @@
         </div>
         <div class="mt-12 text-center">
             <a href="/services" class="btn-magnetic btn-outline">
-                <span class="btn-slide" />
+                <span class="btn-slide"></span>
                 <span class="relative z-10 flex items-center gap-2"
                     >View All Services <ArrowRight size={16} /></span
                 >

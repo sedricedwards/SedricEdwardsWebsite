@@ -48,7 +48,7 @@
             alt="Ambient dark soundscape"
             class="w-full h-full object-cover opacity-10"
         />
-        <div class="absolute inset-0 bg-[#2A2A35]/90" />
+        <div class="absolute inset-0 bg-[#2A2A35]/90"></div>
     </div>
 
     <div class="relative z-10 section-container">

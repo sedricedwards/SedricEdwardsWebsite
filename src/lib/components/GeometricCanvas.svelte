@@ -36,4 +36,4 @@
     });
 </script>
 
-<canvas bind:this={canvasEl} width={260} height={260} class="opacity-80" />
+<canvas bind:this={canvasEl} width={260} height={260} class="opacity-80"></canvas>

@@ -12,7 +12,7 @@
                     experiences that last.
                 </p>
                 <div class="flex items-center gap-2 mt-6">
-                    <span class="w-2 h-2 rounded-full bg-green-400 pulse-dot" />
+                    <span class="w-2 h-2 rounded-full bg-green-400 pulse-dot"></span>
                     <span
                         class="font-mono-custom text-xs text-ivory/40 uppercase tracking-widest"
                         >Systems Operational</span
