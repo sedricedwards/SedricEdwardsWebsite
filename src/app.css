@@ -41,7 +41,7 @@ body {
 }
 
 /* ─── Typography Utilities ─── */
-.font-drama { font-family: 'Playfair Display', serif; }
+/* ponytail: .font-drama comes from tailwind.config fontFamily.drama; .font-mono is font-mono-custom */
 .font-mono-custom { font-family: 'JetBrains Mono', monospace; }
 
 /* ─── Magnetic Button Base ─── */
